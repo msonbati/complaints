@@ -1,0 +1,24 @@
+package com.dash.complaints;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
+
+
+@SpringBootApplication
+public class ComplaintsApplication extends SpringApplication{
+/*
+public class ComplaintsApplication extends SpringBootServletInitializer {
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(ComplaintsApplication.class);
+	}
+*/
+	public static void main(String[] args) {
+		SpringApplication.run(ComplaintsApplication.class, args);
+	}
+
+}

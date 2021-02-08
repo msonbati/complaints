@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DAR AL SHIFA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+<h1>Add complaint</h1>
+
+    <form action="/c/add" method="POST" name="myForm">
+        <p><label for="nameAr">Name (Arabic):</label>
+            <input type="text" name="nameAr" id="nameAr"/></p>
+
+        <p><label for="nameEn">Name(English):</label>
+            <input type="text" name="nameEn" id="nameEn"/></p>
+
+        <p><label for="mobile">Name(English):</label>
+            <input type="text" name="mobile" id="mobile"/></p>
+
+        <p><label for="description">Description:</label>
+            <input type="text" name="description" id="description"/></p>
+
+        <button class="ui-shadow ui-btn ui-corner-all" onclick="submitForm();">Send</button>
+    </form>
+<script>
+    function submitForm(){
+        var formData = JSON.stringify($("#myForm").serializeArray());
+        alert(formData);
+            $.ajax({
+              type: "POST",
+              url: "/c/add",
+              data: formData,
+              success: function(){ alert('success');},
+              dataType: "json",
+              contentType : "application/json"
+            });
+            }
+    </script>
+
+</body>
+</html>
