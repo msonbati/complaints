@@ -27,7 +27,7 @@ public class TestComplaintController {
     MockMvc mockMvc;
 
     @Autowired
-    ObjectMapper objectMapper;
+    ObjectMapper objectMapper; //maps object to json string
 
     @MockBean
     ComplaintService service;
@@ -37,7 +37,7 @@ public class TestComplaintController {
     public void addComplaint() throws Exception {
         Complaint complaint = new Complaint("محمود","Mahmoud");
         complaint.setId(1234);
-     given(service.create(Mockito.any())).willReturn(complaint);
+     given(service.create(Mockito.any())).willReturn(complaint);// BDD style given willReturn
 
 
 
