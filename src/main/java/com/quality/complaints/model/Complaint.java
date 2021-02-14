@@ -26,4 +26,10 @@ public class Complaint {
     private Date changeDate;
     private Integer numberOfChanges;
 
+    public Complaint(String description) {
+        this.description =description;
+    }
+    public Complaint(){
+
+    }
 }

@@ -12,6 +12,7 @@ public class ComplaintServiceImpl implements ComplaintService{
 
     @Override
     public Complaint add(Complaint complaint) {
-        return null;
+       return repository.save(complaint);
+       // return null;
     }
 }
