@@ -7,21 +7,24 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.BDDMockito.given;
 
 public class ComplaintServiceTest {
-    @Mock
-    ComplaintRepository repository;
+@Mock
+   private ComplaintRepository repository;
 
-    @InjectMocks
-    ComplaintService service;
+@InjectMocks
+   private ComplaintServiceImpl service;
 
     @BeforeEach
     public void setup(){
-        MockitoAnnotations.openMocks(this);
+MockitoAnnotations.openMocks(this);
+     //  service =  new ComplaintServiceImpl(repository);
     }
     @Test
     public void addComplaint()throws Exception{
