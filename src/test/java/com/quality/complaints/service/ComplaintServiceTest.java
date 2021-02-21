@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
@@ -37,13 +35,11 @@ public class ComplaintServiceTest {
 
     }
     @Test
-    public void addComplaintWithoutDescription()throws Exception{
+    public void addComplaintWithoutDescription() {
         Complaint complaint = new Complaint();
    //     given(repository.save(complaint))
      //           .willReturn(new Complaint(""));
-      Exception e =  assertThrows(InvalidComplaintException.class ,()->{
-           service.add(complaint);
-       });
+      Exception e =  assertThrows(InvalidComplaintException.class ,()-> service.add(complaint));
       assertEquals("Invalid Complaint Description!",e.getMessage());
 
 
