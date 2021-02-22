@@ -1,11 +1,10 @@
-<html xmlns:th="https://www.thymeleaf.org">
-<head th:include="layout :: head(title=~{::title},links=~{})">
-    <title>Please Login</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Custom Login Page</title>
 </head>
-<body th:include="layout :: body" th:with="content=~{::content}">
-<div th:fragment="content">
+<body>
+<div>
     <form name="f" th:action="@{/login}" method="post">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <fieldset>
             <legend>Please Login</legend>
             <div th:if="${param.error}" class="alert alert-error">
