@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<!--head>
+    <title>Submit Complaint</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head-->
+<head>
+    <title>DAR AL SHIFA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+    th, td {
+  padding: 10px;
+}
+</style>
+
+    <script>
+
+            $(document).ready(function() {
+       window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+        };
+    });
+</script>
+
+</head>
+<body>
+
+
+<div data-role="page" id="display" >
+    <div data-role="header">
+
+        <center>
+            <img th:src="@{img/logo.png}" width="100" />
+        </center>
+        <h1>Dar Al Shifa Hospital</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+
+
+
+
+
+<h4>Submit Complaint</h4>
+<form action="#" th:action="@{/submit}" th:object="${complaint}" method="post">
+
+
+    <div  th:if="${complaint.id}">
+        <center>
+            <h4>Complaint Submitted Successfully!</h4><br/>
+            <img th:src="@{*{'/images/'+id}}" />  <br/>
+            <p th:text="*{id}"></p>
+        </center>
+
+    </div>
+
+    <input type="hidden" id="id" th:field="*{id}" />
+    <label for="nameAr">Arabic Name:</label>
+    <input type="text" id="nameAr" th:field="*{nameAr}" />
+
+    <label for="nameEn">English Name: </label>
+    <input type="text" id="nameEn" th:field="*{nameEn}" />
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" id = "mobile" th:field="*{mobile}" />
+
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
+
+    <p><input type="submit" value="Submit" /> </p>
+</form>
+
+    </div>
+</div>
+</body>
+</html>
