@@ -18,8 +18,8 @@ public class Complaint {
     private String nameEn;
     private String mobile;
     private String description;
-    private Integer numOfAttaches;
-    private Long voiceFileId;
+   // private Integer numOfAttaches;
+    private String voiceFileName;
     private Date creationDate;
     private Integer statusCode;
     private String changedBy;

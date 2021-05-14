@@ -1,14 +1,5 @@
 package com.quality.complaints.service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.stream.Stream;
-
 import com.quality.complaints.config.StorageProperties;
 import com.quality.complaints.exceptions.StorageException;
 import com.quality.complaints.exceptions.StorageFileNotFoundException;
@@ -17,8 +8,19 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Date;
+import java.util.stream.Stream;
 
 @Service
 public class FileSystemStorageService implements StorageService {
@@ -52,6 +54,26 @@ public class FileSystemStorageService implements StorageService {
         catch (IOException e) {
             throw new StorageException("Failed to store file.", e);
         }
+    }
+
+    @Override
+    public void store(byte[] decodedByte) {
+        String fileName = new Date().getTime()+".webm";
+        Path destinationFile = this.rootLocation.resolve(
+                Paths.get(fileName))
+                .normalize().toAbsolutePath();
+        try {
+            FileOutputStream fos = new FileOutputStream(destinationFile.toString());
+            fos.write(decodedByte);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //   fos.write(decodedByte);
+        //   fos.close();
+
     }
 
     @Override

@@ -52,33 +52,30 @@
 
 
 <h4>Submit Complaint</h4>
-<form action="#" th:action="@{/submit}" th:object="${complaint}" method="post">
+<form action="#" th:action="@{/submit}" th:object="${complaint}" method="post" enctype="multipart/form-data">
 
 
     <div  th:if="${complaint.id}">
         <center>
-            <h4>Complaint Submitted Successfully!</h4><br/>
+            <h4>Complaint Submitted Successfully! تم اضافه الشكوي</h4><br/>
             <img th:src="@{*{'/images/'+id}}" />  <br/>
             <p th:text="*{id}"></p>
         </center>
-        <div th:insert="/audio.html :: audio">  </div>
-
-
     </div>
 
     <input type="hidden" id="id" th:field="*{id}" />
-    <label for="nameAr">Arabic Name:</label>
+    <label for="nameAr">Arabic Name:الاسم بالعربيه</label>
     <input type="text" id="nameAr" th:field="*{nameAr}" />
 
-    <label for="nameEn">English Name: </label>
+    <label for="nameEn">English Name:الاسم بالانجليزيه </label>
     <input type="text" id="nameEn" th:field="*{nameEn}" />
 
-    <label for="mobile">Mobile:</label>
+    <label for="mobile">Mobile:الهاتف</label>
     <input type="text" id = "mobile" th:field="*{mobile}" />
 
-    <label for="description">Description</label>
+    <label for="description">Description:تفاصيل الشكوي</label>
     <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
-
+    <div th:insert="/audio.html :: audio">  </div>
     <p><input type="submit" value="Submit" /> </p>
 </form>
 

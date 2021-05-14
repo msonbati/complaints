@@ -1,8 +1,9 @@
 package com.quality.complaints.config;
 
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-
+@Data
 @ConfigurationProperties("storage")
 public class StorageProperties {
 
@@ -10,13 +11,5 @@ public class StorageProperties {
      * Folder location for storing files
      */
     private String location = "src/main/upload-dir";
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
 }
