@@ -57,8 +57,8 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
-    public void store(byte[] decodedByte) {
-        String fileName = new Date().getTime()+".webm";
+    public void store(String fileName,byte[] decodedByte) {
+
         Path destinationFile = this.rootLocation.resolve(
                 Paths.get(fileName))
                 .normalize().toAbsolutePath();

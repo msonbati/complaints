@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
 @Configuration
 @EnableWebSecurity
 @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -23,6 +24,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
+                .antMatchers("/js/**", "/images/**", "/img/**", "/css/**").permitAll()
+                .antMatchers("/submit").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -33,12 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
 
-
-
     }
 
     @Override
-    public void configure(AuthenticationManagerBuilder auth)  {
+    public void configure(AuthenticationManagerBuilder auth) {
 
         auth.authenticationProvider(customAuthProvider);
     }
