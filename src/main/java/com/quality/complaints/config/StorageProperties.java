@@ -10,7 +10,8 @@ public class StorageProperties {
     /**
      * Folder location for storing files
      */
-    private String location = "c:/complaints/uploads";
+    private String location = "\\\\dash-files\\Quality\\Workspace\\Naeem\\Complaints";
+  //  private String location = "c:/complaints/uploads";
   //  private String location = "src/main/upload-dir";
 
 }

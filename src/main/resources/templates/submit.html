@@ -52,7 +52,7 @@
 
 
 <h4>Submit Complaint</h4>
-<form action="#" th:action="@{/submit}" th:object="${complaint}" method="post" enctype="multipart/form-data">
+<form action="#" th:action="@{/complaint}" th:object="${complaint}" method="post" enctype="multipart/form-data">
 
 
     <div  th:if="${complaint.id}">
@@ -64,16 +64,16 @@
     </div>
 
     <input type="hidden" id="id" th:field="*{id}" />
-    <label for="nameAr">Arabic Name:الاسم بالعربيه</label>
+    <label for="nameAr">Full Name:الاسم بالكامل </label>
     <input type="text" id="nameAr" th:field="*{nameAr}" />
 
-    <label for="nameEn">English Name:الاسم بالانجليزيه </label>
-    <input type="text" id="nameEn" th:field="*{nameEn}" />
+    <!--label for="nameEn">English Name:الاسم بالانجليزيه </--label>
+    <input type="text" id="nameEn" th:field="*{nameEn}" /-->
 
     <label for="mobile">Mobile:الهاتف</label>
     <input type="text" id = "mobile" th:field="*{mobile}" />
 
-    <label for="description">Description:تفاصيل الشكوي</label>
+    <label for="description">Complaint description:تفاصيل االشكوى</label>
     <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
     <div th:insert="/audio.html :: audio">  </div>
     <p><input type="submit" value="Submit" /> </p>

@@ -1,5 +1,6 @@
 package com.quality.complaints.controller;
 
+import com.daralshifa.util.DashMailer;
 import com.quality.complaints.exceptions.InvalidComplaintException;
 import com.quality.complaints.model.Complaint;
 import com.quality.complaints.service.ComplaintService;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.FileOutputStream;
@@ -76,6 +78,11 @@ public class UserEndPoints {
 
         try {
             complaint = complaintService.add(complaint);
+            try {
+                DashMailer.sendMail("complaints@daralshifa.com" ,"naeemj@daralshifa.com","complaint",complaint.toString());
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
         } catch (InvalidComplaintException e) {
             e.printStackTrace();
         }
