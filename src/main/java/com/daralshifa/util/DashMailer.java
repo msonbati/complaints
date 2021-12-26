@@ -95,7 +95,7 @@ public class DashMailer {
     }
     public static void sendMail(String from,String to, String subject ,String body) throws MessagingException{
         Properties props = new Properties();
-        props.put("mail.smtp.host", "exchange.daralshifa.com");//
+        props.put("mail.smtp.host", "192.168.20.15");//
         props.put("mail.smtp.user", "ithelpdesk");
         props.put("mail.smtp.password", "it1234"); //mail.smtp.ssl.enable
         props.put("mail.smtp.ssl.enable", "false");

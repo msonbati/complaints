@@ -79,7 +79,9 @@ public class UserEndPoints {
         try {
             complaint = complaintService.add(complaint);
             try {
-                DashMailer.sendMail("complaints@daralshifa.com" ,"naeemj@daralshifa.com","complaint",complaint.toString());
+                final String message = "Complaint id = "+complaint.getId()+" from "+complaint.getNameAr() +" description: "+complaint.getDescription()
+                        + "phone: "+complaint.getMobile()+  complaint.getVoiceFileName()==null?"":" , voice file name"+complaint.getVoiceFileName();
+                DashMailer.sendMail("complaints@daralshifa.com" ,"naeemj@daralshifa.com","complaint",message);
             } catch (MessagingException e) {
                 e.printStackTrace();
             }
