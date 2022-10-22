@@ -80,7 +80,7 @@ public class UserEndPoints {
             complaint = complaintService.add(complaint);
             try {
                 final String message = "Complaint id = "+complaint.getId()+" from "+complaint.getNameAr() +" description: "+complaint.getDescription()
-                        + "phone: "+complaint.getMobile()+  complaint.getVoiceFileName()==null?"":" , voice file name"+complaint.getVoiceFileName();
+                        + "phone: "+complaint.getMobile()+" , voice file name: "+complaint.getVoiceFileName();
                 DashMailer.sendMail("complaints@daralshifa.com" ,"naeemj@daralshifa.com","complaint",message);
             } catch (MessagingException e) {
                 e.printStackTrace();

@@ -51,13 +51,13 @@
 
 
 
-<h4>Submit Complaint</h4>
+<h4>submit your concerns,complaints or suggestions قم بطرح اقتراحك او شكوتك</h4>
 <form action="#" th:action="@{/complaint}" th:object="${complaint}" method="post" enctype="multipart/form-data">
 
 
     <div  th:if="${complaint.id}">
         <center>
-            <h4>Complaint Submitted Successfully! to follow up, please keep the QR code or the number below. تم ارسال الشكوى بنجاح..للمتابعة,الرجاء الاحتفاظ بالرمز أو الرقم أسفله.</h4><br/>
+            <h4>Your complaint submitted successfully , we will call within 1 working day , to follow up please keep the QR code or the number below</h4><br/>
             <img th:src="@{*{'/images/'+id}}" />  <br/>
             <p th:text="*{id}"></p>
         </center>
@@ -73,7 +73,7 @@
     <label for="mobile">Mobile:الهاتف</label>
     <input type="text" id = "mobile" th:field="*{mobile}" />
 
-    <label for="description">Complaint description:تفاصيل االشكوى</label>
+    <label for="description">Describe your concerns, complaints or suggestions :وصف الاقتراح او الشكوى </label>
     <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
     <div th:insert="/audio.html :: audio">  </div>
     <p><input type="submit" value="Submit" /> </p>
