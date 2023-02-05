@@ -74,7 +74,7 @@
     <input type="text" id = "mobile" th:field="*{mobile}" />
 
     <label for="description">Describe your concerns, complaints or suggestions :وصف الاقتراح او الشكوى </label>
-    <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
+    <textarea class="form-control" id="description" th:field="*{description}" rows="15"></textarea>
     <div th:insert="/audio.html :: audio">  </div>
     <p><input type="submit" value="Submit" /> </p>
 </form>
